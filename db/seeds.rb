@@ -31,15 +31,16 @@ questions = Question.create!(
   ]
 )
 
+questions.each { |question| question.answers.create! body: "I don't know"}
+
 answers = Answer.create!(
   [
     { body: "Color of text set by text-color property", question_id: questions[1].id, correct: true }
   ]
 )
-Question.ids.each { |id| Answer.create body: "I don't know", question_id: id }
 
 users.each do |user|
   tests.each do |test|
-    Result.create!(user_id: user.id, test_id: test.id)
+    test.results.create! user_id: user.id
   end
 end
