@@ -16,30 +16,38 @@ categories = Category.create!(
 
 tests = Test.create!(
   [
-    { title: "Ruby Language", level: 3, category_id: categories[0].id, author_id: users.first.id },
-    { title: "Rails Framework", level: 3, category_id: categories[0].id, author_id: users.first.id },
-    { title: "Javascript", level: 2, category_id: categories[1].id, author_id: users.second.id },
-    { title: "CSS/SCSS", level: 1, category_id: categories[1].id, author_id: users.last.id }
+    { title: "Ruby Language", level: 3, category: categories[0], author: users.first },
+    { title: "Rails Framework", level: 3, category: categories[0], author: users.first },
+    { title: "Javascript", level: 2, category: categories[1], author: users.second },
+    { title: "CSS/SCSS", level: 1, category: categories[1], author: users.last }
   ]
 )
 
 questions = Question.create!(
   [
-    { body: "How much gems you know?", test_id: tests[0].id },
-    { body: "How set the color of text?", test_id: tests[3].id },
-    { body: "Who is DHH?", test_id: tests[1].id }
+    { body: "How much gems you know?", test: tests[0] },
+    { body: "How set the color of text?", test: tests[3] },
+    { body: "Who is DHH?", test: tests[1] }
   ]
 )
+
+questions.each { |question| question.answers.create! body: "I don't know"}
 
 answers = Answer.create!(
   [
-    { body: "Color of text set by text-color property", question_id: questions[1].id, correct: true }
+    { body: "Color of text set by text-color property", question: questions[1], correct: true }
   ]
 )
-Question.ids.each { |id| Answer.create body: "I don't know", question_id: id }
 
-users.each do |user|
-  tests.each do |test|
-    Result.create!(user_id: user.id, test_id: test.id)
-  end
-end
+Result.create!(
+  [
+    { user: users[0], test: tests[0] },
+    { user: users[0], test: tests[1] },
+    { user: users[0], test: tests[2] },
+    { user: users[0], test: tests[3] },
+    { user: users[1], test: tests[0] },
+    { user: users[1], test: tests[1] },
+    { user: users[1], test: tests[2] },
+    { user: users[1], test: tests[3] },
+  ]
+)
