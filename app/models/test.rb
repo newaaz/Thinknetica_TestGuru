@@ -12,12 +12,11 @@ class Test < ApplicationRecord
 
   scope :easy, -> { where(level: 0..1) }
   scope :medium, -> { where(level: 2..4) }
-  max_level_of_difficulty = Float::INFINITY
-  scope :hard, -> { where(level: 5..max_level_of_difficulty) }
+  scope :hard, -> { where(level: 5..Float::INFINITY) }
 
   scope :by_category, -> (category) { joins(:category).where(category: { title: category }) }
 
   def self.category_tests_titles_desc(category)
-    by_category(category).pluck(:title).sort.reverse
+    by_category(category).order(title: :desc).pluck(:title)
   end
 end
