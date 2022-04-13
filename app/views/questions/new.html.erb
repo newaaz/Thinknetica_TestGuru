@@ -1,0 +1,10 @@
+<h1>Create new Question</h1>
+<form action="/tests/1/questions" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <p>
+    <label for="question-body">Body:</label>
+    <textarea name="question[body]" id="question-body" required></textarea>    
+  </p><br>
+  <input type="submit" value="Create">
+</form><br>
+<a href="/">Homepage</a>
