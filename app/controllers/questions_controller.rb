@@ -1,9 +1,8 @@
 class QuestionsController < ApplicationController
-
   before_action :set_test, only: %i[index create destroy]
   before_action :set_question, only: %i[show destroy]
 
-  def index    
+  def index
     render plain: @test.questions.pluck(:body).join("\n")
   end
 
@@ -14,8 +13,8 @@ class QuestionsController < ApplicationController
   def new
   end
 
-  def create  
-    question = @test.questions.build(question_params)
+  def create
+    @question = @test.questions.build(question_params)
     if question.save
       redirect_to test_questions_path @test
     else

@@ -1,12 +1,11 @@
 class TestsController < ApplicationController
-
   before_action :find_test, only: %i[show]
 
-  def index    
+  def index
     render plain: Test.all.pluck(:title).join("\n")
   end
 
-  def show    
+  def show
     render inline: '<%= @test.title %>'
   end
 
@@ -14,8 +13,12 @@ class TestsController < ApplicationController
   end
 
   def create
-    test = Test.create(test_params.merge({ author: User.first }))
-    render plain: test.inspect
+    @test = Test.new(test_params.merge({ author: User.first }))
+    if @test.save
+      redirect_to @test
+    else
+      render plain: "Test create failed"
+    end
   end
 
   private
@@ -27,5 +30,4 @@ class TestsController < ApplicationController
   def find_test
     @test = Test.find(params[:id])
   end
-
 end

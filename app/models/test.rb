@@ -1,7 +1,7 @@
 class Test < ApplicationRecord
   belongs_to :category
   belongs_to :author, class_name: "User"
- 
+
   has_many :questions, dependent: :destroy
   has_many :results, dependent: :destroy
   has_many :users, through: :results
@@ -14,7 +14,7 @@ class Test < ApplicationRecord
   scope :medium, -> { where(level: 2..4) }
   scope :hard, -> { where(level: 5..Float::INFINITY) }
 
-  scope :by_category, -> (category) { joins(:category).where(category: { title: category }) }
+  scope :by_category, ->(category) { joins(:category).where(category: { title: category }) }
 
   def self.category_tests_titles_desc(category)
     by_category(category).order(title: :desc).pluck(:title)
