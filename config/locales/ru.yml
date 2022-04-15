@@ -12,6 +12,7 @@ ru:
         title: "Название"
         author_id: "Автор"
         category_id: "Категория"
+        level: "Уровень"
       user:
         name: "Имя"
         email: "email"

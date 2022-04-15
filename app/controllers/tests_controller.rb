@@ -1,15 +1,15 @@
 class TestsController < ApplicationController
-  before_action :find_test, only: %i[show]
+  before_action :find_test, only: %i[show edit update destroy]
 
   def index
-    render plain: Test.all.pluck(:title).join("\n")
+    @tests = Test.all
   end
 
   def show
-    render inline: '<%= @test.title %>'
   end
 
   def new
+    @test = Test.new
   end
 
   def create
@@ -17,8 +17,24 @@ class TestsController < ApplicationController
     if @test.save
       redirect_to @test
     else
-      render plain: "Test create failed"
+      render :new
     end
+  end
+
+  def edit
+  end
+
+  def update
+    if @test.update test_params
+      redirect_to tests_path
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @test.destroy
+    redirect_to tests_path
   end
 
   private
