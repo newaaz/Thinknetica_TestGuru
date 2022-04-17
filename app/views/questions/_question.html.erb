@@ -1,0 +1,13 @@
+<tr>
+  <td><%= truncate question.body, length: 100 %></td>
+  <td>
+    <%= link_to "show", question %> |
+      <%= link_to "edit", edit_question_path(question) %> |
+      <%= link_to "Destroy", question,
+                 method: :delete,
+                 data: { confirm: "Are you sure?" },
+                 class: "btn btn-outline-danger btn-sm" %>
+  </td>      
+</tr>
+
+

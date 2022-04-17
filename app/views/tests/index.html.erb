@@ -1,2 +1,15 @@
-<h1>tests#index</h1>
-<a href="/tests/new">New Test</a>
+<h1>All Tests</h1>
+
+<%= link_to "New test", new_test_path %><br>
+
+<table class="table table-striped mt-3">
+  <tr>
+    <th>Title</th>
+    <th>Category</th>
+    <th>Level</th>
+    <th>Actions</th>
+  </tr>
+
+  <%= render @tests %>
+  
+</table>

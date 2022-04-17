@@ -1,0 +1,13 @@
+<%= form_with model: [@test, @question] do |f| %>
+  <%= render 'shared/errors', resource: @question %>
+
+  <div class="form-group mb-2 col-6">
+    <%= f.label :body, class: "form-label" %>        
+    <%= f.text_area :body, class: 'form-control', required: true %>
+  </div>
+
+  <div class="text-center col-6 mt-3">
+    <%= f.submit class:"btn btn-primary"%>
+    <%= link_to "Back", :back, class: "btn btn-secondary" %>
+  </div>
+<% end %>
