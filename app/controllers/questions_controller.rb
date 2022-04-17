@@ -7,7 +7,6 @@ class QuestionsController < ApplicationController
 
   def new
     @question = @test.questions.build
-    console
   end
 
   def create
