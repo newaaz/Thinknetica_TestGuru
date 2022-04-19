@@ -41,13 +41,13 @@ answers = Answer.create!(
 
 Result.create!(
   [
-    { user: users[0], test: tests[0] },
-    { user: users[0], test: tests[1] },
-    { user: users[0], test: tests[2] },
-    { user: users[0], test: tests[3] },
-    { user: users[1], test: tests[0] },
-    { user: users[1], test: tests[1] },
-    { user: users[1], test: tests[2] },
-    { user: users[1], test: tests[3] },
+    { user: users[0], test: tests[0], current_question: questions[0] },
+    { user: users[0], test: tests[1], current_question: questions[0] },
+    { user: users[0], test: tests[2], current_question: questions[0] },
+    { user: users[0], test: tests[3], current_question: questions[0] },
+    { user: users[1], test: tests[0], current_question: questions[0] },
+    { user: users[1], test: tests[1], current_question: questions[0] },
+    { user: users[1], test: tests[2], current_question: questions[0] },
+    { user: users[1], test: tests[3], current_question: questions[0] },
   ]
 )

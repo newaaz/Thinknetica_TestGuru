@@ -1,0 +1,17 @@
+<%= form_with model: [@question, @answer] do |f| %>
+  <%= render 'shared/errors', resource: @answer %>
+
+  <div class="form-group mb-2 col-6">
+    <%= f.label :body, class: "form-label" %>        
+    <%= f.text_area :body, rows:7, cols:60, class: 'form-control', required: true %>
+  </div>
+
+  <div class="form-check mb-2 col-6">
+    <%= f.label :correct, class: "form-check-label" %>        
+    <%= f.check_box :correct, class: "form-check-input" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
