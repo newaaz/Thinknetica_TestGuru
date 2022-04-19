@@ -27,7 +27,10 @@ questions = Question.create!(
   [
     { body: "How much gems you know?", test: tests[0] },
     { body: "How set the color of text?", test: tests[3] },
-    { body: "Who is DHH?", test: tests[1] }
+    { body: "Who is DHH?", test: tests[1] },
+    { body: "Question1?", test: tests[1] },
+    { body: "Question2?", test: tests[1] },
+    { body: "Question3?", test: tests[1] }
   ]
 )
 
@@ -35,11 +38,16 @@ questions.each { |question| question.answers.create! body: "I don't know"}
 
 answers = Answer.create!(
   [
-    { body: "Color of text set by text-color property", question: questions[1], correct: true }
+    { body: "Color of text set by text-color property", question: questions[1], correct: true },
+    { body: "Answer 1", question: questions[0], correct: true },
+    { body: "Answer 2", question: questions[2], correct: true },
+    { body: "Answer 3", question: questions[0], correct: true },
+    { body: "Answer 4", question: questions[2], correct: true }
   ]
 )
 
-Result.create!(
+=begin
+TestPassage.create!(
   [
     { user: users[0], test: tests[0], current_question: questions[0] },
     { user: users[0], test: tests[1], current_question: questions[0] },
@@ -51,3 +59,4 @@ Result.create!(
     { user: users[1], test: tests[3], current_question: questions[0] },
   ]
 )
+=end

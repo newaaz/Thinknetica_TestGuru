@@ -1,0 +1,9 @@
+<% if @test_passage.percent_correct_answers >= 85 %>
+  <div class="success_result">
+    Congratulations! You have successfully passed the test! You result: <%= @test_passage.percent_correct_answers %>%
+  </div>
+<% else %>
+  <div class="fail_result">
+    You have unsuccessfully passed the test! You result: <%= @test_passage.percent_correct_answers %>%
+  </div>
+<% end %>

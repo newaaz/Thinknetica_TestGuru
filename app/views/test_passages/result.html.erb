@@ -1,0 +1,6 @@
+<h1>The "<%= @test_passage.test.title %>" Test was Completed!</h1>
+
+<%= render 'percent_correct_answers' %>
+
+<%= link_to "All Tests", tests_path %>
+<%= button_to 'Restart this test', start_test_path(@test_passage.test) %>
