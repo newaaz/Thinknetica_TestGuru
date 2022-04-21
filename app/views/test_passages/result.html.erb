@@ -1,6 +1,14 @@
 <h1>The "<%= @test_passage.test.title %>" Test was Completed!</h1>
 
-<%= render 'percent_correct_answers' %>
+<% if @test_passage.successful? %>
+  <div class="success_result">
+    Congratulations! You have successfully passed the test! You result: <%= @test_passage.percent_correct_answers %>%
+  </div>
+<% else %>
+  <div class="fail_result">
+    You have unsuccessfully passed the test! You result: <%= @test_passage.percent_correct_answers %>%
+  </div>
+<% end %>
 
 <%= link_to "All Tests", tests_path %>
 <%= button_to 'Restart this test', start_test_path(@test_passage.test) %>
