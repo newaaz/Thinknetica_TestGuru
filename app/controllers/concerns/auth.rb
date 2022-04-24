@@ -1,4 +1,4 @@
-module SessionsHelper
+module Auth
   private
 
   def authenticate_user!
@@ -12,8 +12,7 @@ module SessionsHelper
   def authenticate_user(user)
     log_in user
     flash[:info] = "You are logged"
-    forwarding_url = cookies[:forwarding_url]
-    redirect_to forwarding_url || tests_path
+    redirect_to cookies.delete(:forwarding_url) || tests_path
   end
 
   def store_location

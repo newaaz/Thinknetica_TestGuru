@@ -1,7 +1,10 @@
 class ApplicationController < ActionController::Base
-  include SessionsHelper
+  include Auth
 
   before_action :authenticate_user!
+
+  helper_method :logged_in?,
+                :current_user
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_record_not_found
 
