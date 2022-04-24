@@ -1,10 +1,42 @@
-<header class="d-flex align-items-center pb-3 mb-5 border-bottom">
-  <%= link_to root_path do %>
-    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-album" width="30" height="30" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-    <rect x="4" y="4" width="16" height="16" rx="2"></rect>
-    <path d="M12 4v7l2 -2l2 2v-7"></path>
-    </svg>
-    <span class="ms-2 fs-4">Test Guru</span>
-  <% end %>
-</header>
+<nav class="navbar navbar-expand-md navbar-light sticky-top" style="background-color: #dadada;">
+  <div class="container">  
+    <%= link_to "Test Guru", root_url, class: 'navbar-brand' %>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header" style="background-color: #dadada;">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+      
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+      
+          <% if logged_in? %>
+            <li class="nav-item">
+              <%= link_to "Welcome, #{current_user.name} Guru", tests_path, class: 'nav-link' %>
+            </li>  
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <%= current_user.name %> 
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
+                <li><%= link_to "New Test", new_test_path, class: "dropdown-item" %></li>                
+                <li><hr class="dropdown-divider"></li>
+                <li><%= link_to "Выход", logout_path, class: 'dropdown-item' %></li>
+              </ul>
+            </li>
+          <% else %>
+            <div class="text-end mt-1">
+              <%= link_to "Регистрация", signup_path, class: 'btn btn-sm btn-outline-primary' %>
+              <%= link_to "Вход", login_path, class: 'btn btn-sm btn-outline-primary' %>
+            </div>
+          <% end %>
+
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
