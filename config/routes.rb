@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
-  
   root 'tests#index'
+
+  get :signup, to: 'users#new'
+  get :login, to: 'sessions#new'
+  get :logout, to: 'sessions#destroy'
+
+  resources :users, only: :create
+  resources :sessions, only: :create
 
   resources :tests do
     resources :questions, except: :index, shallow: true do
@@ -12,5 +18,4 @@ Rails.application.routes.draw do
   resources :test_passages, only: %i[show update] do
     get :result, on: :member
   end
-
 end
