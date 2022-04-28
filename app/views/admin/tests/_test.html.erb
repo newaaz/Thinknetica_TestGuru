@@ -1,0 +1,12 @@
+<tr>
+  <td><%= link_to test.title, admin_test_path(test) %> (<%= test.questions.count %>)</td>
+  <td><%= test.category.title %></td>
+  <td><%= test_level(test) %></td>
+  <td>
+    <%= link_to "Edit", edit_admin_test_path(test), class: "btn btn-success btn-sm" %>
+    <%= link_to "Destroy", admin_test_path(test),
+                 method: :delete,
+                 data: { confirm: "Are you sure?" },
+                 class: "btn btn-outline-danger btn-sm" %>
+  </td>      
+</tr>

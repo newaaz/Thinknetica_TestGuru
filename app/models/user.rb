@@ -1,4 +1,11 @@
 class User < ApplicationRecord
+  devise  :database_authenticatable,
+          :registerable,
+          :recoverable,
+          :rememberable,
+          :validatable,
+          :confirmable
+
   has_many :test_passages, dependent: :destroy
   has_many :tests, through: :test_passages
 
@@ -11,14 +18,16 @@ class User < ApplicationRecord
                     format: { with: URI::MailTo::EMAIL_REGEXP, message: "Invalid email" },
                     uniqueness: { case_sensitive: false }
 
-  has_secure_password
-
   def tests_by_level(level)
     tests.where(level: level)
   end
 
   def test_passage(test)
     test_passages.order(id: :desc).find_by(test: test)
+  end
+
+  def admin?
+    is_a?(Admin)
   end
 
   private
