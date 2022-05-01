@@ -1,27 +1,80 @@
 ru:
-  activerecord:
-    models:
-      test: "Тест"
-      user: "Пользователь"
-      category: "Категория"
-      question: "Вопрос"
-      answer: "Ответ"
-      
-    attributes:
+  level:
+    easy: "Новичок"
+    elementary: "Простой"
+    advanced: "Продвинутый"
+    hard: "Тяжёлый"
+    hero: "Хардкор"
+
+  actions:
+    show: "Показать"
+    edit: "Изменить"
+    destroy: "Удалить"
+    start: "Старт"
+    confirm: "Вы уверены?"
+    add_question: "Добавить вопрос"
+    all_tests: "Все тесты"
+
+  helpers:
+    submit:
+      tests:
+        create: "Создать Тест"
+        update: "Обновить Тест"
+    label:
       test:
         title: "Название"
-        author_id: "Автор"
+        level: "Уровень сложности"
         category_id: "Категория"
-        level: "Уровень"
-      user:
-        name: "Имя"
-        email: "email"
-      category:
-        title: "Название"
-      question:
-        body: "Текст"
-        test_id: "Тест"
-      answer:
-        body: "Текст"
-        question_id: "Вопрос"
+    select:
+      prompt: "Выбрать категорию"
+
+  shared:
+    errors:
+      header:
+        few: "Обнаружено %{count} ошибки"
+        many: "Обнаружено %{count} ошибок"
+        one: "Обнаружена %{count} ошибка"
+        other: "Обнаружено %{count} ошибки"
+
+  tests_mailer:
+    completed_test:
+      subject: 'Вы успешно завершили тест на TestGuru!'
         
+  admin:
+    tests:
+      show:
+        title: "Заголовок:"
+        category: "Категория:"
+        level: "Уровень сложности:"
+        questions: "Вопросы:"
+        question_body: "Вопрос"
+        actions: "Действия"
+      index:
+        header: "Тесты (Admin)"
+        new_test: "Новый Тест"
+        title: "Заголовок"
+        category: "Категория"
+        level: "Уровень сложности"
+        actions: "Действия"
+      create:
+        success: "Тест успешно создан"
+
+  tests:
+    index:
+      header: "Доступные Тесты"
+      title: "Заголовок"
+      category: "Категория"
+      level: "Уровень сложности"
+      actions: "Действия"
+
+  test_passages:
+    result:
+      header: "Тест %{title} успешно завершён"
+      restart: "Пройти ещё раз"
+    result_message:
+      fail_result: "Неудачное прохождение Теста. Ваш результат: %{result}%"
+      success_result: "Поздравляем! Вы удачно прошли тест. Ваш результат: %{result}%"
+    show:
+      header: "Прохождение теста %{title}"
+      question: "Вопрос"
+      next: "Следующий"

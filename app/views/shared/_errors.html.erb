@@ -1,7 +1,8 @@
 <% if resource.errors.any? %>
 
 <div class="alert alert-danger alert-dismissible fade show" role="alert">
-  <h5><%= pluralize(resource.errors.count, 'error') %> detected</h5>
+  <h5><%= t('.header', count: resource.errors.count) %></h5>
+  
   <ul>
     <% resource.errors.full_messages.each do |message| %>
       <li><%= message %></li>

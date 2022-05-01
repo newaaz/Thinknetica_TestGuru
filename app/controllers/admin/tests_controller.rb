@@ -1,4 +1,4 @@
-class TestsController < Admin::BaseController
+class Admin::TestsController < Admin::BaseController
   before_action :set_test, only: %i[show edit update destroy]
 
   def index
@@ -14,6 +14,7 @@ class TestsController < Admin::BaseController
   def create
     @test = current_user.authored_tests.build(test_params)
     if @test.save
+      flash[:info] = t('.success')
       redirect_to admin_tests_path
     else
       render :new

@@ -14,11 +14,11 @@
   <div class="form-group mb-2 col-6">
     <%= f.label :category_id, class: "form-label" %>        
     <%= f.collection_select :category_id, Category.all, :id, :title,
-              { prompt: "Выбрать..." }, class:"form-select form-select-sm", required: true %>
+              { prompt: true }, class:"form-select form-select-sm", required: true %>
   </div>
 
   <div class="text-center col-6 mt-3">
     <%= f.submit class:"btn btn-primary"%>
-    <%= link_to "Back", :back, class: "btn btn-secondary" %>
+    <%= link_to t('actions.all_tests'), :back, class: "btn btn-secondary" %>
   </div>
 <% end %>

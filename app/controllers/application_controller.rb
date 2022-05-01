@@ -1,10 +1,19 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :authenticate_user!
+  before_action :set_locale
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_record_not_found
 
+  def default_url_options
+    I18n.default_locale == I18n.locale ? {} : { lang: I18n.locale }
+  end
+
   private
+
+  def set_locale
+    I18n.locale = I18n.locale_available?(params[:lang]) ? params[:lang] : I18n.default_locale
+  end
 
   def rescue_with_record_not_found(exception)
     logger.warn exception
