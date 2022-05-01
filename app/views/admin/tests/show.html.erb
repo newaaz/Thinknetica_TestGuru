@@ -1,24 +1,24 @@
 <p>
-  <strong>Title:</strong>
+  <strong><%= t('.title') %></strong>
   <%= @test.title %>
 </p>
 
 <p>
-  <strong>Category:</strong>
+  <strong><%= t('.category') %></strong>
   <%= @test.category.title %>
 </p>
 
 <p>
-  <strong>Level:</strong>
+  <strong><%= t('.level') %></strong>
   <%= @test.level %>
 </p>
 
-<p><strong>Questions:</strong></p>
+<p><strong><%= t('.questions') %></strong></p>
 
 <table class="table table-striped mt-3">
   <tr>
-    <th>Body</th>
-    <th>Actions</th>
+    <th><%= t('.question_body') %></th>
+    <th><%= t('.actions') %></th>
   </tr>
 
   <%= render @test.questions %>
@@ -26,7 +26,7 @@
 </table>
 
 <p>
-  <%= link_to "Add question", new_admin_test_question_path(@test), class: "btn btn-success btn-sm" %>
-  <%= link_to "Edit", edit_admin_test_path(@test), class: "btn btn-success btn-sm" %>
-  <%= link_to "All tests", tests_path, class: "btn btn-primary btn-sm" %>
+  <%= link_to t('actions.add_question'), new_admin_test_question_path(@test), class: "btn btn-success btn-sm" %>
+  <%= link_to t('actions.edit'), edit_admin_test_path(@test), class: "btn btn-success btn-sm" %>
+  <%= link_to t('actions.all_tests'), tests_path, class: "btn btn-primary btn-sm" %>
 </p>

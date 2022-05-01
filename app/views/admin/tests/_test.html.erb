@@ -3,10 +3,10 @@
   <td><%= test.category.title %></td>
   <td><%= test_level(test) %></td>
   <td>
-    <%= link_to "Edit", edit_admin_test_path(test), class: "btn btn-success btn-sm" %>
-    <%= link_to "Destroy", admin_test_path(test),
+    <%= link_to t('actions.edit'), edit_admin_test_path(test), class: "btn btn-success btn-sm" %>
+    <%= link_to t('actions.destroy'), admin_test_path(test),
                  method: :delete,
-                 data: { confirm: "Are you sure?" },
+                 data: { confirm: t('actions.confirm') },
                  class: "btn btn-outline-danger btn-sm" %>
   </td>      
 </tr>

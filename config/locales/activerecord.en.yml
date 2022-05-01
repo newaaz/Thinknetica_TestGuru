@@ -1,0 +1,25 @@
+en:
+  activerecord:
+    models:
+      test: "Test"
+      user: "User"
+      category: "Category"
+      question: "Question"
+      answer: "Answer"      
+    attributes:
+      test:
+        title: "Title"
+        author_id: "Author"
+        category_id: "Category"
+        level: "Level"
+      user:
+        name: "Name"
+        email: "email"
+      category:
+        title: "Title"
+      question:
+        body: "Body"
+        test_id: "Test"
+      answer:
+        body: "Body"
+        question_id: "Question"

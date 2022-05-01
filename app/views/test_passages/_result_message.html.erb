@@ -1,0 +1,9 @@
+<% if @test_passage.successful? %>
+  <div class="success_result">
+    <%= t('.success_result', result: @test_passage.percent_correct_answers) %>
+  </div>
+<% else %>
+  <div class="fail_result">
+    <%= t('.fail_result', result: @test_passage.percent_correct_answers) %>
+  </div>
+<% end %>
