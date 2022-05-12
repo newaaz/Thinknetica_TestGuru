@@ -2,5 +2,9 @@
   <td><%= link_to short_question(gist.question) , admin_question_path(gist.question) %></td>
   <td><%= link_to url_path(gist), gist.url %></td>
   <td><%= gist.user.email %></td>
-  <td><button type="button" class="btn btn-outline-danger btn-sm">Delete</button></td>
+  <td>  <%= link_to t('actions.destroy'), admin_gist_path(gist),
+                 method: :delete,
+                 data: { confirm: t('actions.confirm') },
+                 class: "btn btn-outline-danger btn-sm" %>
+  </td>
 </tr>

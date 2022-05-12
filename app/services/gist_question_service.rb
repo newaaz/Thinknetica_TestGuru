@@ -1,15 +1,31 @@
 class GistQuestionService
-  def initialize(question, client: nil)
+  Struct.new('Result', :url) do
+    def success?
+      url.present?
+    end
+  end
+
+  def initialize(question, client = default_client)
     @question = question
     @test = @question.test
-    @client = client || Octokit::Client.new(access_token: ENV['GITHUB_TOKEN'])
+    @client = client
   end
 
   def call
-    @client.create_gist(gist_params)
+    result = @client.create_gist(gist_params)
+    Struct::Result.new result.html_url
+  end
+
+  def destroy_gist(gist)
+    gist_id = (URI gist.url).path.split('/')[1]
+    @client.delete_gist(gist_id)
   end
 
   private
+
+  def default_client
+    Octokit::Client.new(access_token: ENV.fetch('GITHUB_TOKEN'))
+  end
 
   def gist_params
     {
@@ -24,8 +40,6 @@ class GistQuestionService
   end
 
   def gist_content
-    content = [@question.body]
-    content += @question.answers.pluck(:body)
-    content.join("\n")
+    [@question.body, *@question.answers.pluck(:body)].join("\n")
   end
 end

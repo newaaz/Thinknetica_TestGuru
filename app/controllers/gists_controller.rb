@@ -4,9 +4,10 @@ class GistsController < ApplicationController
 
     @result = GistQuestionService.new(@test_passage.current_question).call
 
-    if @result.html_url
+    if @result.success?
       create_gist
-      flash[:info] = "#{t('.success')} #{view_context.link_to t('.link_to_gist'), @result.html_url, class: "alert-link"}"
+      flash[:info] = "#{t('.success')} #{view_context.link_to t('.link_to_gist'), @result.url, class: "alert-link",
+                                                                                  target: "_blank", rel: "nofollow noopener" }"
     else
       flash[:danger] = t('.failure')
     end
@@ -17,6 +18,6 @@ class GistsController < ApplicationController
   private
 
   def create_gist
-    current_user.gists.build(question: @test_passage.current_question, url: @result.html_url).save
+    current_user.gists.build(question: @test_passage.current_question, url: @result.url).save
   end
 end

@@ -1,4 +1,9 @@
-Category.destroy_all
+users = User.create!(
+  [
+    { name: "Alex", email: "myemail0@mail.ru" },
+    { name: "Bob", email: "myemail1@mail.ru" }
+  ]
+)
 
 categories = Category.create!(
   [
@@ -8,8 +13,6 @@ categories = Category.create!(
     { title: "Machine Learning" }
   ]
 )
-
-users = User.all
 
 tests = Test.create!(
   [
@@ -28,5 +31,15 @@ questions = Question.create!(
     { body: "Question1?", test: tests[1] },
     { body: "Question2?", test: tests[1] },
     { body: "Question3?", test: tests[1] }
+  ]
+)
+
+answers = Answer.create!(
+  [
+    { body: "Color of text set by text-color property", question: questions[1], correct: true },
+    { body: "Answer 1", question: questions[0], correct: true },
+    { body: "Answer 2", question: questions[2], correct: true },
+    { body: "Answer 3", question: questions[0], correct: true },
+    { body: "Answer 4", question: questions[2], correct: true }
   ]
 )
