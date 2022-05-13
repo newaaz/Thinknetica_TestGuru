@@ -1,6 +1,6 @@
 <tr>
   <td><%= link_to short_question(gist.question) , admin_question_path(gist.question) %></td>
-  <td><%= link_to url_path(gist), gist.url %></td>
+  <td><%= link_to_gist(gist)  %></td>
   <td><%= gist.user.email %></td>
   <td>  <%= link_to t('actions.destroy'), admin_gist_path(gist),
                  method: :delete,
