@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   resources :test_passages, only: %i[show update] do
     get :result, on: :member
+
+    resources :gists, only: :create
   end
 
   namespace :admin do
@@ -18,5 +20,7 @@ Rails.application.routes.draw do
         resources :answers, except: :index, shallow: true
       end
     end
+
+    resources :gists, only: %i[index destroy]
   end
 end
