@@ -1,10 +1,18 @@
+<% content_for (:javascript_plugin_header) do %>
+  <%= javascript_include_tag "utilities/sorting_rows.js", 'data-turbolinks-track': 'reload' %>
+<% end %>
+
 <h1><%= t('.header') %></h1>
 
 <%= link_to t('.new_test'), new_admin_test_path %><br>
 
 <table class="table table-striped mt-3">
   <tr>
-    <th><%= t('.title') %></th>
+    <th class="sort-by-title pointer">
+      <%= t('.title') %>
+      <%= octicon 'arrow-up', class: "text-success hide" %>
+      <%= octicon 'arrow-down', class: "text-success hide" %>
+    </th>
     <th><%= t('.category') %></th>
     <th><%= t('.level') %></th>
     <th><%= t('.actions') %></th>
@@ -13,3 +21,5 @@
   <%= render @tests %>
   
 </table>
+
+<%= octicon 'arrow-down', class: "text-success", id: "arrow-down" %>
