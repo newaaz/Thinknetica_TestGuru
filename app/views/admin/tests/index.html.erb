@@ -6,7 +6,7 @@
 
 <%= link_to t('.new_test'), new_admin_test_path %><br>
 
-<table class="table table-striped mt-3">
+<table class="sortable table table-striped mt-3">
   <tr>
     <th class="sort-by-title pointer">
       <%= t('.title') %>
@@ -21,5 +21,3 @@
   <%= render @tests %>
   
 </table>
-
-<%= octicon 'arrow-down', class: "text-success", id: "arrow-down" %>

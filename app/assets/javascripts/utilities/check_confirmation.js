@@ -1,26 +1,35 @@
-document.addEventListener('turbolinks:load', function() {
+class CheckPasswordConfirmation {
+  constructor(selector) {
+    this.$form = document.querySelector(selector)
+    this.password = this.$form.elements.user_password
+    this.password_confirm = this.$form.elements.user_password_confirmation
 
-  const form = document.getElementById('new_user')
-  const passField = form.elements.user_password
-  const confirmField = form.elements.user_password_confirmation
+    this.setup()
+  }
 
-  if (confirmField) { confirmField.addEventListener('input', function() {
-      if (this.value !== '') {
-        checkConfirmation()
+  setup() {
+    this.password_confirm.addEventListener('input', event => {
+      if (this.password_confirm.value !== '') {
+        this.checkConfirmation()
       } else {
-        form.querySelector('.octicon-alert').classList.add('hide')
-        form.querySelector('.octicon-check-circle-fill').classList.add('hide')
+        this.$form.querySelector('.octicon-alert').classList.add('hide')
+        this.$form.querySelector('.octicon-check-circle-fill').classList.add('hide')
       }
     })
   }
 
-  function checkConfirmation() { 
-    if (confirmField.value == passField.value) {
-      form.querySelector('.octicon-alert').classList.add('hide')
-      form.querySelector('.octicon-check-circle-fill').classList.remove('hide')
+  checkConfirmation() {    
+    if (this.password_confirm.value == this.password.value) {
+      this.$form.querySelector('.octicon-alert').classList.add('hide')
+      this.$form.querySelector('.octicon-check-circle-fill').classList.remove('hide')
     } else {    
-      form.querySelector('.octicon-alert').classList.remove('hide')
-      form.querySelector('.octicon-check-circle-fill').classList.add('hide')
+      this.$form.querySelector('.octicon-alert').classList.remove('hide')
+      this.$form.querySelector('.octicon-check-circle-fill').classList.add('hide')
     }
-  }  
+  }
+}
+
+
+document.addEventListener('turbolinks:load', function() {
+  var checkPassConfirm = new CheckPasswordConfirmation('#new_user')
 })
