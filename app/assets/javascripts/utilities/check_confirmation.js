@@ -1,10 +1,15 @@
 class CheckPasswordConfirmation {
   constructor(selector) {
     this.$form = document.querySelector(selector)
-    this.password = this.$form.elements.user_password
-    this.password_confirm = this.$form.elements.user_password_confirmation
 
-    this.setup()
+    if (this.$form) {
+      this.password = this.$form.elements.user_password
+      this.password_confirm = this.$form.elements.user_password_confirmation
+
+      this.setup()
+    } else {
+      alert("Form not found")
+    }    
   }
 
   setup() {
@@ -28,8 +33,3 @@ class CheckPasswordConfirmation {
     }
   }
 }
-
-
-document.addEventListener('turbolinks:load', function() {
-  var checkPassConfirm = new CheckPasswordConfirmation('#new_user')
-})

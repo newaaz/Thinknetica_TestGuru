@@ -2,7 +2,6 @@
   <%= javascript_include_tag "utilities/check_confirmation.js", 'data-turbolinks-track': 'reload' %>
 <% end %>
 
-
 <h2>Sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -45,3 +44,9 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+
+<script>
+  document.addEventListener('turbolinks:load', function() {
+    const inputForm = new CheckPasswordConfirmation('#new_user')
+  })
+</script>
