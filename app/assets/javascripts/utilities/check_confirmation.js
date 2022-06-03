@@ -1,18 +1,11 @@
 class CheckPasswordConfirmation {
-  constructor(selector) {
-    this.$form = document.querySelector(selector)
-
-    if (this.$form) {
-      this.password = this.$form.elements.user_password
-      this.password_confirm = this.$form.elements.user_password_confirmation
-
-      this.setup()
-    } else {
-      alert("Form not found")
-    }    
+  constructor(form) {
+    this.$form = form  
+    this.password = this.$form.elements.user_password
+    this.password_confirm = this.$form.elements.user_password_confirmation 
   }
 
-  setup() {
+  call() {
     this.password_confirm.addEventListener('input', event => {
       if (this.password_confirm.value !== '') {
         this.checkConfirmation()

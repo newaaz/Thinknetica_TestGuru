@@ -3,12 +3,10 @@ class SortTable {
     this.$table = table
     this.control = this.$table.querySelector('.sort-by-title')
     this.arrowUp = this.$table.querySelector('.octicon-arrow-up')
-    this.arrowDown = this.$table.querySelector('.octicon-arrow-down')
-
-    this.setup()
+    this.arrowDown = this.$table.querySelector('.octicon-arrow-down')    
   }
 
-  setup() {
+  call() {
     if (this.control) this.control.addEventListener('click', event => { this.sortRowsByTitle() })
   }
 
@@ -59,11 +57,3 @@ function compareRowsDesc(row1, row2) {
   if (testTitle1 > testTitle2) { return -1 }
   return 0
 }
-
-document.addEventListener('turbolinks:load', function() {
-  const sortableTables = [].slice.call(document.querySelectorAll('.sortable'))
-
-  sortableTables.map(function(sortableTable) {
-    return new SortTable(sortableTable)
-  })  
-})
