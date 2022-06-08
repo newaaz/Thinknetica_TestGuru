@@ -1,7 +1,7 @@
 users = User.create!(
   [
-    { name: "Alex", email: "myemail0@mail.ru" },
-    { name: "Bob", email: "myemail1@mail.ru" }
+    { name: "Alex", email: "myemail0@mail.ru", password: 123456, password_confirmation: 123456},
+    { name: "Bob", email: "myemail1@mail.ru", password: 123456, password_confirmation: 123456 }
   ]
 )
 
