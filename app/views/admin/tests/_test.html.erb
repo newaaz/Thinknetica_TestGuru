@@ -1,12 +1,20 @@
 <tr>
-  <td><%= link_to test.title, admin_test_path(test) %> (<%= test.questions.count %>)</td>
+  <td>
+    <%= content_tag :span, class: 'test-title', data: { test_id: test.id } do %>
+      <%= link_to test.title, admin_test_path(test) %> (<%= test.questions.count %>)
+    <% end %>
+    <%= render 'form_inline', test: test == @test ? @test : test %>
+  </td>
   <td><%= test.category.title %></td>
   <td><%= test_level(test) %></td>
   <td>
-    <%= link_to t('actions.edit'), edit_admin_test_path(test), class: "btn btn-success btn-sm" %>
+    <%= link_to t('actions.edit'),
+                edit_admin_test_path(test),
+                data: { test_id: test.id },
+                class: "form-inline-link btn btn-success btn-sm" %>
     <%= link_to t('actions.destroy'), admin_test_path(test),
-                 method: :delete,
-                 data: { confirm: t('actions.confirm') },
-                 class: "btn btn-outline-danger btn-sm" %>
+                method: :delete,
+                data: { confirm: t('actions.confirm') },
+                class: "btn btn-outline-danger btn-sm" %>
   </td>      
 </tr>

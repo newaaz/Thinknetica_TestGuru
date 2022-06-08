@@ -58,6 +58,8 @@ ru:
         actions: "Действия"
       create:
         success: "Тест успешно создан"
+      form_inline:
+        submit: "OK"
 
   tests:
     index:
