@@ -1,0 +1,5 @@
+<div class="progress">
+  <%= content_tag :div, '', class: 'progress-bar',
+                            data: { current_question: @test_passage.number_current_question,
+                            questions_count: @test_passage.test.questions.count } %>
+</div>
