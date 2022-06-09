@@ -5,7 +5,8 @@ en:
       user: "User"
       category: "Category"
       question: "Question"
-      answer: "Answer"      
+      answer: "Answer"
+      gist: "Gist"    
     attributes:
       test:
         title: "Title"
@@ -23,3 +24,8 @@ en:
       answer:
         body: "Body"
         question_id: "Question"
+        correct: "Correct"
+      gist:
+        question: "Question"
+        user: "User"
+        url: "URL"

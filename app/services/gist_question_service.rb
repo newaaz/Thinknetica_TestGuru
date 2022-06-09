@@ -24,7 +24,8 @@ class GistQuestionService
   private
 
   def default_client
-    Octokit::Client.new(access_token: ENV.fetch('GITHUB_TOKEN'))
+    github_token = Rails.env.production? ? ENV['GITHUB_TOKEN'] : ENV.fetch('GITHUB_TOKEN')
+    Octokit::Client.new(access_token: github_token)
   end
 
   def gist_params

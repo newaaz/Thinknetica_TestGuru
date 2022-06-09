@@ -11,7 +11,10 @@
     <%= f.check_box :correct, class: "form-check-input" %>
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
+  
+  <div class="text-center col-6 mt-3">
+    <%= f.submit class:"btn btn-primary"%>
+    <%= link_to t('actions.back'), :back, class: "btn btn-secondary" %>
   </div>
+
 <% end %>

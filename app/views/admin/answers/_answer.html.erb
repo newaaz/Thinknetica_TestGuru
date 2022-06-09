@@ -1,9 +1,9 @@
 <li>
   <%= answer.body %><br>
-  <%= link_to "show", admin_answer_path(answer) %> |
-  <%= link_to "edit", edit_admin_answer_path(answer) %> |
-  <%= link_to "Destroy", admin_answer_path(answer),
+  <%= link_to t('actions.show'), admin_answer_path(answer) %> |
+  <%= link_to t('actions.edit'), edit_admin_answer_path(answer) %> |
+  <%= link_to t('actions.destroy'), admin_answer_path(answer),
               method: :delete,
-              data: { confirm: "Are you sure?" },
+              data: { confirm: t('actions.confirm') },
               class: "btn btn-outline-danger btn-sm" %>
 </li>

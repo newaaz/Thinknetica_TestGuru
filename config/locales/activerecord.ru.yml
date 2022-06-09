@@ -5,7 +5,8 @@ ru:
       user: "Пользователь"
       category: "Категория"
       question: "Вопрос"
-      answer: "Ответ"      
+      answer: "Ответ"
+      gist: "Gist"    
     attributes:
       test:
         title: "Название"
@@ -22,5 +23,10 @@ ru:
         body: "Текст"
         test_id: "Тест"
       answer:
-        body: "Текст"
+        body: "Текст ответа"
         question_id: "Вопрос"
+        correct: "Ответ правильный"
+      gist:
+        question: "Вопрос"
+        user: "Пользователь"
+        url: "URL"
