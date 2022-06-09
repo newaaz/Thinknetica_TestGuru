@@ -14,37 +14,34 @@
           <li class="nav-item">
             <span class="nav-link" role="button" data-bs-toggle="modal" data-bs-target="#messageModal">
             <%= octicon 'mail', class: "text-black" %>
-            Contact us
+              <%= t('.contact_us') %>
             </span>
           </li> 
 
           <% if user_signed_in? %>
-            <li class="nav-item">
-              <%= link_to "Welcome, #{current_user.name} Guru", tests_path, class: 'nav-link' %>
-            </li>  
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <%= octicon 'person', class: "text-black" %>
                 <%= current_user.name %> 
               </a>
               <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
-                <li><%= link_to "All tests", tests_path, class: "dropdown-item" %></li>                
+                <li><%= link_to t('actions.all_tests'), tests_path, class: "dropdown-item" %></li>                
                 <li><hr class="dropdown-divider"></li>
-                <li><%= link_to "Выход", destroy_user_session_path, method: :delete, class: 'dropdown-item' %></li>
+                <li><%= link_to t('actions.logout'), destroy_user_session_path, method: :delete, class: 'dropdown-item' %></li>
               </ul>
             </li>
             <% if current_user.admin? %>
               <li class="nav-item">
                 <%= link_to admin_tests_path, class: 'nav-link' do %>
                   <%= octicon 'gear', class: "text-black" %>
-                  Admin Panel
+                  <%= t('.admin') %>
                 <% end %>
               </li> 
             <% end %>
           <% else %>
             <div class="text-end mt-1">
-              <%= link_to "Регистрация", new_user_registration_path, class: 'btn btn-sm btn-outline-primary' %>
-              <%= link_to "Вход", new_user_session_path, class: 'btn btn-sm btn-outline-primary' %>
+              <%= link_to t('actions.signup'), new_user_registration_path, class: 'btn btn-sm btn-outline-primary' %>
+              <%= link_to t('actions.login'), new_user_session_path, class: 'btn btn-sm btn-outline-primary' %>
             </div>
           <% end %>
         </ul>
