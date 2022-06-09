@@ -7,7 +7,8 @@ document.addEventListener('turbolinks:load', function() {
 
   // check password confirmation
   const inputForm = document.getElementById('new_user')
-  if (inputForm) new CheckPasswordConfirmation(inputForm).call()
+  if (inputForm) { const confirmationField = inputForm.elements.user_password_confirmation  }
+  if ((inputForm) && (confirmationField)) new CheckPasswordConfirmation(inputForm).call()
 
   // set progress bar
   const progressBar = document.querySelector('.progress-bar')

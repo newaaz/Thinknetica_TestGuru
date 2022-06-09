@@ -11,10 +11,11 @@ class SortTable {
   }
 
   sortRowsByTitle() {
+    this.$table = document.querySelector('.sortable')
     let rows = this.$table.querySelectorAll('tr')
     let sortedRows = []
 
-    for (var i = 1; i < rows.length; i++) {
+    for (let i = 1; i < rows.length; i++) {
       sortedRows.push(rows[i])
     }
 
@@ -29,13 +30,19 @@ class SortTable {
     }    
 
     let sortedTable = document.createElement('table')
+    let thead = document.createElement('thead')
+    let tbody = document.createElement('tbody')
+
     sortedTable.classList.add('sortable','table', 'table-striped', 'mt-3')
-    sortedTable.appendChild(rows[0])    
+
+    thead.appendChild(rows[0])
+    sortedTable.appendChild(thead)
 
     for (let i = 0; i < sortedRows.length; i++) {
-      sortedTable.appendChild(sortedRows[i])
+      tbody.appendChild(sortedRows[i])
     }
 
+    sortedTable.appendChild(tbody)
     this.$table.parentNode.replaceChild(sortedTable, this.$table)
   }
 }

@@ -9,9 +9,14 @@
         <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
-      <div class="offcanvas-body">
-      
+      <div class="offcanvas-body">      
         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <li class="nav-item">
+            <span class="nav-link" role="button" data-bs-toggle="modal" data-bs-target="#messageModal">
+            <%= octicon 'mail', class: "text-black" %>
+            Contact us
+            </span>
+          </li> 
 
           <% if user_signed_in? %>
             <li class="nav-item">
@@ -19,6 +24,7 @@
             </li>  
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <%= octicon 'person', class: "text-black" %>
                 <%= current_user.name %> 
               </a>
               <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
@@ -29,7 +35,10 @@
             </li>
             <% if current_user.admin? %>
               <li class="nav-item">
-                <%= link_to "Admin Panel", admin_tests_path, class: 'nav-link' %>
+                <%= link_to admin_tests_path, class: 'nav-link' do %>
+                  <%= octicon 'gear', class: "text-black" %>
+                  Admin Panel
+                <% end %>
               </li> 
             <% end %>
           <% else %>
@@ -38,9 +47,37 @@
               <%= link_to "Вход", new_user_session_path, class: 'btn btn-sm btn-outline-primary' %>
             </div>
           <% end %>
-
         </ul>
       </div>
     </div>
   </div>
 </nav>
+
+<!-- message modal -->
+<div class="modal fade" id="messageModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Написать нам</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="body-message">
+        <%= form_with(url: send_message_path, local: false, html: { name: "message" }) do |f| %>
+          <div class="form-group">
+            <%= f.label "Email" %>            
+            <%= f.email_field :email, class:"form-control form-control-sm", required: true %>             
+          </div>      
+              
+          <div class="my-3">
+            <%= f.label "Текст:", class: 'form-label' %>          
+            <%= f.text_area :body, class:"form-control", rows:3 %>
+          </div>
+
+          <div class="d-flex justify-content-center">
+            <%= button_tag "Отправить", type: 'submit', class:"w-50 btn btn-primary" %>
+          </div>              
+        <% end %>    
+      </div>
+    </div>
+  </div>
+</div>

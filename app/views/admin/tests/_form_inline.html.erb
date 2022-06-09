@@ -1,7 +1,7 @@
 <%= form_with model: [:admin, test],
               url: update_inline_admin_test_path(test),
-              class: 'form-inline hide',
+              class: 'form-inline hide row row-cols-lg-auto',
               data: { test_id: test.id } do |form| %>
-  <%= form.text_field :title, class: "form-control form-control-sm" %>
+  <div class="col-12"><%= form.text_field :title, class: "form-control form-control-sm" %></div>
   <%= form.submit t('.submit'), class: "btn btn-primary btn-sm" %>
 <% end %>

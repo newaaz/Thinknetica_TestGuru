@@ -24,4 +24,6 @@ Rails.application.routes.draw do
 
     resources :gists, only: %i[index destroy]
   end
+
+  post 'send_message', to: 'application#send_message'
 end
