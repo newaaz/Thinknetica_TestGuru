@@ -95,8 +95,7 @@ en:
       show:
         question: "Belongs to Question: "
         answer: "Answer: "
-        correct: "Correct: "  
-          
+        correct: "Correct: "            
   gists:
     create:
       success: "Gist was successfully created!"
