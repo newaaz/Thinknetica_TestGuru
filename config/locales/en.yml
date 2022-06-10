@@ -95,18 +95,21 @@ en:
       show:
         question: "Belongs to Question: "
         answer: "Answer: "
-        correct: "Correct: "            
+        correct: "Correct: "
+
+    gists:
+      index:
+        question: "Question"
+        gist_url: "Link to gist"
+        user: "User"
+        gists: "All Gists"
+        actions: "Actions"  
+
   gists:
     create:
       success: "Gist was successfully created!"
       failure: "An error occured while saving gist"
       link_to_gist: "Link to gist"
-    index:
-      question: "Question"
-      gist_url: "Link to gist"
-      user: "User"
-      gists: "All Gists"
-      actions: "Actions"    
 
   tests:
     index:
@@ -127,7 +130,6 @@ en:
       header: "Passing the %{title} Test"
       question: "Question"
       next: "Next"
-
   
   gist_question_service:
     description: "A question about %{title} form Test Guru"

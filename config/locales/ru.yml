@@ -97,19 +97,20 @@ ru:
       show:
         question: "Принадлежит вопросу: "
         answer: "Ответ: "
-        correct: "Правильный: "  
-          
+        correct: "Правильный: "
+    gists:
+      index:
+        question: "Вопрос"
+        gist_url: "Ссылка на gist"
+        user: "Пользователь"
+        gists: "Список Gists"
+        actions: "Действия"  
+              
   gists:
     create:
       success: "Gist успешно сохранён."
       failure: "Во время сохранения gist произошла ошибка"
       link_to_gist: "Ссылка на gist"
-    index:
-      question: "Вопрос"
-      gist_url: "Ссылка на gist"
-      user: "Пользователь"
-      gists: "Список Gists"
-      actions: "Действия"  
 
   tests:
     index:
