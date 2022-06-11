@@ -1,16 +1,18 @@
-<p>
-  <strong><%= t('.question') %></strong>
-  <%= @answer.question.body %>
-</p>
+<div class="bg-white border rounded p-4 my-4">
+  <p>
+    <strong><%= t('.question') %></strong>
+    <%= @answer.question.body %>
+  </p>
 
-<p>
-  <b><%= t('.answer') %></b>
-  <%= @answer.body %>
-</p>
+  <p>
+    <b><%= t('.answer') %></b>
+    <%= @answer.body %>
+  </p>
 
-<p>
-  <b><%= t('.correct') %></b>
-  <%= @answer.correct %>
-</p>
+  <p>
+    <b><%= t('.correct') %></b>
+    <%= @answer.correct %>
+  </p>
+</div>
 
 <%= link_to t('actions.back'), admin_question_path(@answer.question), class: "btn btn-secondary" %>

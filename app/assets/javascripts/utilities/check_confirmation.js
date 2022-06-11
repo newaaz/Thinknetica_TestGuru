@@ -15,6 +15,9 @@ class CheckPasswordConfirmation {
           this.$form.querySelector('.octicon-check-circle-fill').classList.add('hide')
         }
       })
+      this.password.addEventListener('input', event => {
+        this.checkConfirmation()
+      })
     }
   }
 

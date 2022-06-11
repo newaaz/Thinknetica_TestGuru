@@ -62,7 +62,7 @@ ru:
       edit:
         edit_test: "Редактирование теста: '%{test}'"
       show:
-        title: "Название:"
+        title: "Название Теста:"
         category: "Категория:"
         level: "Уровень сложности:"
         questions: "Вопросы:"
@@ -83,7 +83,7 @@ ru:
       new: "Новый вопрос для '%{test}'"
       edit: "Редактирование вопроса для '%{test}'"
       show:
-        answers: "Ответы"
+        answers: "Ответы: "
         question_test: "Принадлежит Тесту:"
         question_body: "Текст вопроса"
         question_show: "Вопрос № %{id}"    
@@ -130,7 +130,7 @@ ru:
     show:
       header: "Прохождение теста %{title}"
       question: "Вопрос"
-      next: "Следующий"
+      next: "Дальше"
 
   gist_question_service:
     description: "Вопрос по теме: %{title}"
