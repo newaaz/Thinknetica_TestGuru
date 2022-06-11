@@ -14,6 +14,11 @@ en:
     confirm: "Are you sure?"
     add_question: "Add question"
     all_tests: "All Tests"
+    logout: "Logout"
+    back: "Back"
+    to_test: "To Test"
+    new_answer: "New Answer"
+    create_gist: "Create Gist"
 
   helpers:
     submit:
@@ -33,6 +38,14 @@ en:
       header:
         one: "%{count} error detected"
         other: "%{count} errors detected"
+    nav:
+      contact_us: "Contact us"
+      wellcome: "Hi, %{username}"
+      admin: "Admin"
+      all_tests_admin: "All Tests (Admin)"
+    footer:
+      app_for: "App for create, manage and passage tests"
+      link_to_think: "Eucational project in online-school Thinknetica"
 
   tests_mailer:
     completed_test:
@@ -40,6 +53,10 @@ en:
         
   admin:
     tests:
+      new:
+        new_test: "New Test"
+      edit:
+        edit_test: "Edit Test: '%{test}'"
       show:
         title: "Title:"
         category: "Category:"
@@ -58,6 +75,41 @@ en:
         success: "Test created"
       form_inline:
         submit: "OK"
+
+    questions:
+      new: "New Question for '%{test}'"
+      edit: "Question edit for '%{test}'"
+      show:
+        answers: "Answers"
+        question_test: "Belongs to Test: "
+        question_body: "Question body"
+        question_show: "Question № %{id}"
+
+    answers:
+      new:
+        new_answer: "New Answer"
+        question: "Belongs to Question: "
+      edit:
+        edit_answer: "Edit Answer"
+        question: "Belongs to Question: "
+      show:
+        question: "Belongs to Question: "
+        answer: "Answer: "
+        correct: "Correct: "
+
+    gists:
+      index:
+        question: "Question"
+        gist_url: "Link to gist"
+        user: "User"
+        gists: "All Gists"
+        actions: "Actions"  
+
+  gists:
+    create:
+      success: "Gist was successfully created!"
+      failure: "An error occured while saving gist"
+      link_to_gist: "Link to gist"
 
   tests:
     index:
@@ -78,12 +130,6 @@ en:
       header: "Passing the %{title} Test"
       question: "Question"
       next: "Next"
-
-  gists:
-    create:
-      success: "Gist was successfully created!"
-      failure: "An error occured while saving gist"
-      link_to_gist: "Link to gist"      
-
+  
   gist_question_service:
     description: "A question about %{title} form Test Guru"

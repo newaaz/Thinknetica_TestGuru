@@ -9,6 +9,15 @@ class ApplicationController < ActionController::Base
     I18n.default_locale == I18n.locale ? {} : { lang: I18n.locale }
   end
 
+  def send_message
+    message = {
+      body: params[:body],
+      email: params[:email]
+    }
+
+    ApplicationMailer.send_message(message).deliver_now
+  end
+
   private
 
   def set_locale

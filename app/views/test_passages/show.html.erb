@@ -4,19 +4,23 @@
 
 <%= render 'progress_bar' %>
 
-<div class="my-3">
-  <b><%= @test_passage.current_question.body %></b>
+<div class="bg-white border rounded p-4">
+
+  <div class="mb-3">
+    <b><%= @test_passage.current_question.body %></b>
+  </div>
+
+  <%= form_with url: test_passage_path(@test_passage), method: :put do |f| %>
+    <%= f.collection_check_boxes :answer_ids, @test_passage.current_question.answers, :id, :body, include_hidden: false do |b| %>
+      <div class="form-check mb-2 col-6">
+        <%= b.check_box class: "form-check-input" %>
+        <%= b.label class: "form-check-label" %>
+      </div>
+    <% end %>
+
 </div>
 
-<%= form_with url: test_passage_path(@test_passage), method: :put do |f| %>
-  <%= f.collection_check_boxes :answer_ids, @test_passage.current_question.answers, :id, :body, include_hidden: false do |b| %>
-    <div class="form-check mb-2 col-6">
-      <%= b.check_box class: "form-check-input" %>
-      <%= b.label class: "form-check-label" %>
-    </div>
+    <%= f.submit t('.next'),class:"btn btn-primary btn-sm mt-3"%>
   <% end %>
 
-  <%= f.submit t('.next'),class:"btn btn-primary btn-sm mt-3"%>
-<% end %>
-
-<p><%= button_to 'Create Gist', test_passage_gists_path(@test_passage), class: "btn btn-success btn-sm" %></p>
+<p><%= button_to t('actions.create_gist'), test_passage_gists_path(@test_passage), class: "btn btn-success btn-sm" %></p>
