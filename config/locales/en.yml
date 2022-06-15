@@ -7,6 +7,9 @@ en:
     hero: "Hardcore"
 
   actions:
+    gists: "Gists"
+    badges: "Badges"
+    actions: "Actions"
     show: "Show"
     edit: "Edit"
     destroy: "Delete"
@@ -19,6 +22,8 @@ en:
     to_test: "To Test"
     new_answer: "New Answer"
     create_gist: "Create Gist"
+    signup: "Signup"
+    login: "Login"
 
   helpers:
     submit:
@@ -52,6 +57,23 @@ en:
       subject: 'You just completed the TestGuru test!'
         
   admin:
+    badges:
+      show:
+        show_badge: "Badge info"
+      index:
+        badges: "Badges"
+        new_badge: "New Badge"
+        title: "Title"
+        image: "Image"
+        rule_name: "Rule"
+        rule_value: "Value"
+      edit:
+        edit_badge: "Edit Badge"
+      new:      
+        new_badge: "New Badge"
+      form:
+        choose_rule: "Choose rule"
+        choose_image: "Choose image number"
     tests:
       new:
         new_test: "New Test"
@@ -104,6 +126,12 @@ en:
         user: "User"
         gists: "All Gists"
         actions: "Actions"  
+
+  users:
+    badges:
+      badges: "Badges info"
+      badge_received: "Received Badges:"
+      all_badges: "All Badges"
 
   gists:
     create:

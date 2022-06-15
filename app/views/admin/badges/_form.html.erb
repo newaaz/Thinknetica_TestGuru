@@ -1,0 +1,39 @@
+<%= form_with model: [:admin, @badge] do |f| %>
+  <%= render 'shared/errors', resource: @badge %>
+
+  <div class="form-group mb-4 col-6">
+    <%= f.label :title, class: "form-label" %>        
+    <%= f.text_field :title, class: 'form-control form-control-sm' %>
+  </div>
+
+
+  <div class="form-group mb-2 col-6">
+    <%= f.label :image, class: "form-label" %> 
+    <div class="row">
+      <% 12.times do |i| %>
+        <div class="col-2 mb-3">
+          <%= image_tag "badges/#{i}.png", width: "70" %>
+          <div class="text-center"><%= i %></div>
+        </div>
+      <% end %>
+    </div>          
+    <%= f.number_field :image,  class: 'form-control form-control-sm',
+                                placeholder: t('.choose_image'),
+                                min: 0, max: 11, required: true %>
+  </div>
+
+  <div class="form-group mb-2 col-6">
+    <%= f.label :rule_name, class: "form-label" %>        
+    <%= f.select :rule_name, Badge.rule_names.keys, { prompt: t('.choose_rule') }, class: 'form-select form-select-sm' %>
+  </div>
+
+  <div class="form-group mb-2 col-6">
+    <%= f.label :rule_value, class: "form-label" %>
+    <%= f.text_field :rule_value, class: 'form-control form-control-sm' %>
+  </div>
+  
+  <div class="text-center col-6 mt-3">
+    <%= f.submit class:"btn btn-primary"%>
+    <%= link_to t('actions.back'), :back, class: "btn btn-secondary" %>
+  </div>
+<% end %>

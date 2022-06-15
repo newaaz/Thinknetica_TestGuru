@@ -1,0 +1,13 @@
+<tr class="align-middle">
+  <td><%= link_to badge.title, admin_badge_path(badge) %></td>
+  <td><%= image_tag "badges/#{badge.image}.png", width: "50" %></td>
+  <td><%= badge.rule_name %></td>
+  <td><%= badge.rule_value %></td>
+  <td>
+    <%= link_to t('actions.edit'), edit_admin_badge_path(badge), class: "btn btn-success btn-sm" %>
+    <%= link_to t('actions.destroy'), admin_badge_path(badge),
+                method: :delete,
+                data: { confirm: t('actions.confirm') },
+                class: "btn btn-outline-danger btn-sm" %>
+  </td> 
+</tr>

@@ -25,6 +25,7 @@
                 <%= current_user.name %> 
               </a>
               <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
+                <li><%= link_to t('actions.badges'), badges_user_path(current_user), class: "dropdown-item" %></li> 
                 <li><%= link_to t('actions.all_tests'), tests_path, class: "dropdown-item" %></li>                
                 <li><hr class="dropdown-divider"></li>
                 <li><%= link_to t('actions.logout'), destroy_user_session_path, method: :delete, class: 'dropdown-item' %></li>

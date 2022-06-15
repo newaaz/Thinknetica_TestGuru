@@ -6,8 +6,14 @@ en:
       category: "Category"
       question: "Question"
       answer: "Answer"
-      gist: "Gist"    
+      gist: "Gist"
+      badge: "Badge"  
     attributes:
+      badge:
+        title: "Title"
+        image: "Image"
+        rule_name: "Rule name"
+        rule_value: "Rule value"
       test:
         title: "Title"
         author_id: "Author"

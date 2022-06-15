@@ -7,6 +7,8 @@ class TestPassage < ApplicationRecord
 
   before_validation :set_current_question
 
+  scope :successful, -> { where(successful: true) }
+
   def accept!(answer_ids)
     self.correct_questions += 1 if correct_answer?(answer_ids)
 
@@ -21,7 +23,7 @@ class TestPassage < ApplicationRecord
     ((correct_questions.fdiv test.questions.count) * 100).round
   end
 
-  def successful?
+  def complete_successful?
     percent_correct_answers >= SUCCESS_RATIO
   end
 

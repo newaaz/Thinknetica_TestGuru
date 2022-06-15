@@ -5,7 +5,7 @@ class GistsController < ApplicationController
 
     if @result.success?
       create_gist
-      
+
       flash[:info] = "#{t('.success')} #{view_context.link_to_created_gist(@result.url)}"
     else
       flash[:danger] = t('.failure')
