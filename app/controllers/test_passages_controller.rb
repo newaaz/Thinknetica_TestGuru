@@ -9,9 +9,10 @@ class TestPassagesController < ApplicationController
     @test_passage.accept!(params[:answer_ids])
 
     if @test_passage.completed?
-      @test_passage.update(successful: true, current_question: nil) if @test_passage.complete_successful?
-      AwardingBadgesService.new(@test_passage).call
       TestsMailer.completed_test(@test_passage).deliver_now
+      received_badges = AwardingBadgesService.new(@test_passage).call
+      @test_passage.user.badges << received_badges
+
       redirect_to result_test_passage_path(@test_passage)
     else
       render :show
