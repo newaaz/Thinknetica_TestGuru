@@ -1,0 +1,16 @@
+<h1><%= t('.badges') %></h1>
+
+<%= link_to t('.new_badge'), new_admin_badge_path %><br>
+
+<table class="table table-striped mt-3">
+  <tr>
+    <th><%= t('.title') %></th>
+    <th><%= t('.image') %></th>
+    <th><%= t('.rule_name') %></th>
+    <th><%= t('.rule_value') %></th>
+    <th><%= t('actions.actions') %></th>
+  </tr>
+
+  <%= render @badges %>
+  
+</table>

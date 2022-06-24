@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   devise_for :users, path: :gurus, path_names: { sign_in: :login, sign_out: :logout },
                                    controllers: { sessions: 'sessions' }
 
+  resources :users do
+    get :badges, on: :member
+  end
+
   resources :tests, only: :index do
     post :start, on: :member
   end
@@ -23,6 +27,7 @@ Rails.application.routes.draw do
     end
 
     resources :gists, only: %i[index destroy]
+    resources :badges
   end
 
   post 'send_message', to: 'application#send_message'

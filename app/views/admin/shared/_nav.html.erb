@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-primary sticky-top">
   <div class="container">  
-    <%= link_to "Test Guru", root_url, class: 'navbar-brand' %>
+    <%= link_to "Test Guru (admin)", admin_tests_path, class: 'navbar-brand' %>
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -12,9 +12,15 @@
       <div class="offcanvas-body">      
         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
           <li class="nav-item">              
+            <%= link_to admin_badges_path, class: 'nav-link' do %>
+              <%= octicon 'file-badge', class: "text-white" %>
+              <%= t('actions.badges') %>
+            <% end %>
+          </li>  
+          <li class="nav-item">              
             <%= link_to admin_gists_path, class: 'nav-link' do %>
               <%= octicon 'file', class: "text-white" %>
-              Gists
+              <%= t('actions.gists') %>
             <% end %>
           </li>  
           <li class="nav-item dropdown">

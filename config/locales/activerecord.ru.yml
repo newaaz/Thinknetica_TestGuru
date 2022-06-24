@@ -6,8 +6,14 @@ ru:
       category: "Категория"
       question: "Вопрос"
       answer: "Ответ"
-      gist: "Gist"    
+      gist: "Gist"
+      badge: "Бэйдж"  
     attributes:
+      badge:
+        title: "Название"
+        image: "Изобажение"
+        rule_name: "Правило получения"
+        rule_value: "Значение правила"
       test:
         title: "Название"
         author_id: "Автор"

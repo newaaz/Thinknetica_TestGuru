@@ -7,6 +7,9 @@ ru:
     hero: "Хардкор"
 
   actions:
+    gists: "Gists"
+    badges: "Бэйджи"
+    actions: "Действия"
     show: "Показать"
     edit: "Изменить"
     destroy: "Удалить"
@@ -56,6 +59,24 @@ ru:
       subject: 'Вы успешно завершили тест на TestGuru!'
         
   admin:
+    badges:
+      show:
+        show_badge: "Информация о Бэйдже"
+      index:
+        badges: "Бэйджи"
+        new_badge: "Новый Бэйдж"
+        title: "Название"
+        image: "Изображение"
+        rule_name: "Правило"
+        rule_value: "Значение"
+      edit:
+        edit_badge: "Редактировать Бэйдж"
+      new:      
+        new_badge: "Новый Бэйдж"
+      form:
+        choose_rule: "Выбрать правило"
+        choose_image: "Введите номер изображения"
+    
     tests:
       new:
         new_test: "Новый Тест"
@@ -79,6 +100,7 @@ ru:
         success: "Тест успешно создан"
       form_inline:
         submit: "OK"    
+    
     questions:
       new: "Новый вопрос для '%{test}'"
       edit: "Редактирование вопроса для '%{test}'"
@@ -87,6 +109,7 @@ ru:
         question_test: "Принадлежит Тесту:"
         question_body: "Текст вопроса"
         question_show: "Вопрос № %{id}"    
+    
     answers:
       new:
         new_answer: "Новый ответ"
@@ -98,6 +121,7 @@ ru:
         question: "Принадлежит вопросу: "
         answer: "Ответ: "
         correct: "Правильный: "
+    
     gists:
       index:
         question: "Вопрос"
@@ -105,7 +129,13 @@ ru:
         user: "Пользователь"
         gists: "Список Gists"
         actions: "Действия"  
-              
+
+  users:
+    badges:
+      badges: "Информация о Бэйджах"
+      badge_received: "Полученные Бэйджи:"
+      all_badges: "Все существующие Бэйджи"
+
   gists:
     create:
       success: "Gist успешно сохранён."
