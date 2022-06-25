@@ -1,16 +1,17 @@
 <h1><%= t('.header', title: @test_passage.test.title) %></h1>
 
+<div id="timer"><%= @test_passage.passage_time %></div>
+
 <p><%= current_question(@test_passage) %></p>
 
 <%= render 'progress_bar' %>
 
-<div class="bg-white border rounded p-4">
 
   <div class="mb-3">
     <b><%= @test_passage.current_question.body %></b>
   </div>
 
-  <%= form_with url: test_passage_path(@test_passage), method: :put do |f| %>
+  <%= form_with url: test_passage_path(@test_passage), method: :put, html: { name: "question" } do |f| %>
     <%= f.collection_check_boxes :answer_ids, @test_passage.current_question.answers, :id, :body, include_hidden: false do |b| %>
       <div class="form-check mb-2 col-6">
         <%= b.check_box class: "form-check-input" %>
@@ -18,9 +19,24 @@
       </div>
     <% end %>
 
-</div>
+    <%= f.hidden_field :passage_time %>
 
-    <%= f.submit t('.next'),class:"btn btn-primary btn-sm mt-3"%>
+    <%= button_tag t('.next'), type: 'submit', class:"btn btn-primary btn-sm mt-3" %>
   <% end %>
 
 <p><%= button_to t('actions.create_gist'), test_passage_gists_path(@test_passage), class: "btn btn-success btn-sm" %></p>
+
+<script>
+  const form = document.forms.question
+
+  if (form) {
+    form.addEventListener('submit', function(event){
+      form.button.disabled = true;  
+      event.preventDefault();      
+
+      this.passage_time.value = document.getElementById('timer').innerText;    
+
+      form.submit();
+    })
+  }
+</script>
