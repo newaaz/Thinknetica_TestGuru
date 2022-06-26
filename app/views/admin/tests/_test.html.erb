@@ -6,6 +6,7 @@
     <%= render 'form_inline', test: test == @test ? @test : test %>
   </td>
   <td><%= test.category.title %></td>
+  <td><%= test.time_limit %></td>
   <td><%= test_level(test) %></td>
   <td>
     <%= link_to t('actions.edit'),

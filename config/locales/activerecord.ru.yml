@@ -19,6 +19,7 @@ ru:
         author_id: "Автор"
         category_id: "Категория"
         level: "Уровень"
+        time_limit: "Время на прохождение"
       user:
         name: "Имя"
         email: "Email"

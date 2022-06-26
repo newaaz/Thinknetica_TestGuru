@@ -6,18 +6,21 @@ document.addEventListener('turbolinks:load', function() {
     let timer = setInterval(displayTimer, 1000)
 
     function displayTimer() {
-      if (control.innerText == "0") { 
+      if (control.innerText == "0") {         
         sendToResult()        
       } else {
         control.innerText = parseInt(control.innerText) - 1
       }  
     }
   
-    function sendToResult() {
-      clearInterval(timer)
-      const form = document.forms.question
-      form.passage_time.value = document.getElementById('timer').innerText;
-      form.submit();
+    function sendToResult() {  
+      clearInterval(timer)    
+
+      let testPassageId = control.dataset.testPassageId
+      let currentLocation = window.location
+      let resultLocation = currentLocation.origin + '/test_passages/' + testPassageId + "/result"
+
+      window.location.replace(resultLocation)
     }
   }  
 })

@@ -19,6 +19,7 @@ en:
         author_id: "Author"
         category_id: "Category"
         level: "Level"
+        time_limit: "Время на прохождение"
       user:
         name: "Name"
         email: "email"

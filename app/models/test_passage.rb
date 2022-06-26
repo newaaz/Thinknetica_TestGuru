@@ -9,10 +9,13 @@ class TestPassage < ApplicationRecord
 
   scope :successful, -> { where(successful: true) }
 
-  def accept!(answer_ids:, passage_time:)
+  def time_left
+    (test.time_limit * 60) - (updated_at - created_at).to_i
+  end
+
+  def accept!(answer_ids:)
     self.correct_questions += 1 if correct_answer?(answer_ids)
     self.successful = true if complete_successful?
-    self.passage_time = passage_time
     save!
   end
 
