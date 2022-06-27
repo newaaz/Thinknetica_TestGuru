@@ -6,16 +6,18 @@ class TestPassage < ApplicationRecord
   belongs_to :current_question, class_name: "Question", optional: true
 
   before_validation :set_current_question
+  before_update     :check_test_finish
 
   scope :successful, -> { where(successful: true) }
 
   def time_left
-    (test.time_limit * 60) - (updated_at - created_at).to_i
+    (test.time_limit * 15) - (Time.current - created_at).to_i
   end
 
   def accept!(answer_ids:)
     self.correct_questions += 1 if correct_answer?(answer_ids)
     self.successful = true if complete_successful?
+
     save!
   end
 
@@ -36,6 +38,10 @@ class TestPassage < ApplicationRecord
   end
 
   private
+
+  def check_test_finish
+    self.current_question = nil if time_left <= 0
+  end
 
   def set_current_question
     self.current_question = next_question

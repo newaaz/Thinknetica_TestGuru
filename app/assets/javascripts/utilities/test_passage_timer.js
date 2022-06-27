@@ -14,13 +14,10 @@ document.addEventListener('turbolinks:load', function() {
     }
   
     function sendToResult() {  
-      clearInterval(timer)    
+      clearInterval(timer)  
 
-      let testPassageId = control.dataset.testPassageId
-      let currentLocation = window.location
-      let resultLocation = currentLocation.origin + '/test_passages/' + testPassageId + "/result"
-
-      window.location.replace(resultLocation)
+      const form = document.forms.question
+      form.submit();
     }
   }  
 })

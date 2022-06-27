@@ -7,10 +7,10 @@ class TestPassagesController < ApplicationController
 
   def update
     @test_passage.accept!(answer_ids: params[:answer_ids])
-
+    
     if @test_passage.completed?
       AwardingBadgesService.call(@test_passage)
-      # TestsMailer.completed_test(@test_passage).deliver_now
+      TestsMailer.completed_test(@test_passage).deliver_now
       redirect_to result_test_passage_path(@test_passage)
     else
       render :show
