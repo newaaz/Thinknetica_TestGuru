@@ -161,6 +161,8 @@ ru:
       header: "Прохождение теста %{title}"
       question: "Вопрос"
       next: "Дальше"
+    timer:
+      time_left: "У вас осталось (секунд)"
 
   gist_question_service:
     description: "Вопрос по теме: %{title}"

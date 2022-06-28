@@ -158,6 +158,8 @@ en:
       header: "Passing the %{title} Test"
       question: "Question"
       next: "Next"
+    timer:
+      time_left: "У вас осталось (секунд)"
   
   gist_question_service:
     description: "A question about %{title} form Test Guru"

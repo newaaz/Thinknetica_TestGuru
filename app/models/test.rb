@@ -16,6 +16,10 @@ class Test < ApplicationRecord
 
   scope :by_category, ->(category) { joins(:category).where(category: { title: category }) }
 
+  def has_time_limit?
+    time_limit.present?
+  end
+
   def self.category_tests_titles_desc(category)
     by_category(category).order(title: :desc).pluck(:title)
   end

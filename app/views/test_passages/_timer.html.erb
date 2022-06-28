@@ -1,0 +1,5 @@
+  <%= t('.time_left') %>
+  
+  <%= content_tag :div, id: 'timer', data: { test_passage_id: @test_passage.id } do %>    
+    <%= @test_passage.time_left %>
+  <% end %>
